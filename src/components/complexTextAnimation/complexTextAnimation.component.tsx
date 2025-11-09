@@ -34,23 +34,33 @@ export function ComplexTextAnimation() {
         (char as HTMLElement).style.display = "inline-block";
         (char as HTMLElement).style.transformOrigin = "50% 55%";
 
-        const spinI = gsap.timeline({ repeat: -1 });
+        // const spinI = gsap.timeline({ repeat: -1 });
 
-        spinI
-          .to(char, {
-            rotationX: "+=540",
-            duration: 1.5,
-            ease: "power2.inOut",
-          })
-          .to({}, { duration: 1 })
-          .to(char, {
-            rotationX: "+=540",
-            duration: 1.5,
-            ease: "power2.inOut",
-          })
-          .to({}, { duration: 1 });
+        // spinI
+        //   .to(char, {
+        //     rotationX: "+=540",
+        //     duration: 1.5,
+        //     ease: "power2.inOut",
+        //   })
+        //   .to({}, { duration: 1 })
+        //   .to(char, {
+        //     rotationX: "+=540",
+        //     duration: 1.5,
+        //     ease: "power2.inOut",
+        //   })
+        //   .to({}, { duration: 1 });
 
-        t1.add(spinI);
+        // t1.add(spinI);
+
+        t1.to(char, {
+          keyframes: [
+            { rotationX: "+=540", duration: 1.5, ease: "power2.inOut" },
+            { duration: 1 },
+            { rotationX: "+=540", duration: 1.5, ease: "power2.inOut" },
+            { duration: 1 },
+          ],
+          repeat: -1,
+        });
       }
     });
 
@@ -75,27 +85,60 @@ export function ComplexTextAnimation() {
             rotation: -360,
             duration: 1,
             ease: "power2.out",
+            // onComplete: startRotatingImg,
           },
           "<-0.8"
         );
 
-        const spin = gsap.timeline({ repeat: -1, delay: 2 });
+        // function startRotatingImg() {
+        //   gsap.to(img, {
+        //     keyframes: [
+        //       { rotationZ: 90, duration: 0.6, ease: "power1.inOut" },
+        //       { duration: 0.5 },
+        //       { rotationZ: 180, duration: 0.6, ease: "power1.inOut" },
+        //       { duration: 0.5 },
+        //       { rotationZ: 270, duration: 0.6, ease: "power1.inOut" },
+        //       { duration: 0.5 },
+        //       { rotationZ: 360, duration: 0.6, ease: "power1.inOut" },
+        //       { duration: 0.5 },
+        //     ],
+        //     repeat: -1,
+        //     delay: 2,
+        //   });
+        // }
 
-        spin
-          .to(img, {
-            rotationZ: 90,
-            duration: 0.6,
-            ease: "power1.inOut",
-          })
-          .to({}, { duration: 0.5 })
-          .to(img, { rotationZ: 180, duration: 0.6, ease: "power1.inOut" })
-          .to({}, { duration: 0.5 })
-          .to(img, { rotationZ: 270, duration: 0.6, ease: "power1.inOut" })
-          .to({}, { duration: 0.5 })
-          .to(img, { rotationZ: 360, duration: 0.6, ease: "power1.inOut" })
-          .to({}, { duration: 0.5 });
+        // const spin = gsap.timeline({ repeat: -1, delay: 2 });
 
-        t1.add(spin, "<");
+        // spin
+        //   .to(img, {
+        //     rotationZ: 90,
+        //     duration: 0.6,
+        //     ease: "power1.inOut",
+        //   })
+        //   .to({}, { duration: 0.5 })
+        //   .to(img, { rotationZ: 180, duration: 0.6, ease: "power1.inOut" })
+        //   .to({}, { duration: 0.5 })
+        //   .to(img, { rotationZ: 270, duration: 0.6, ease: "power1.inOut" })
+        //   .to({}, { duration: 0.5 })
+        //   .to(img, { rotationZ: 360, duration: 0.6, ease: "power1.inOut" })
+        //   .to({}, { duration: 0.5 });
+
+        // t1.add(spin, "<");
+
+        t1.to(img, {
+          keyframes: [
+            { rotationZ: 90, duration: 0.6, ease: "power1.inOut" },
+            { duration: 0.5 },
+            { rotationZ: 180, duration: 0.6, ease: "power1.inOut" },
+            { duration: 0.5 },
+            { rotationZ: 270, duration: 0.6, ease: "power1.inOut" },
+            { duration: 0.5 },
+            { rotationZ: 360, duration: 0.6, ease: "power1.inOut" },
+            { duration: 0.5 },
+          ],
+          repeat: -1,
+          delay: 2,
+        });
       }
     });
   }, []);
