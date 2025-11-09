@@ -1,0 +1,18 @@
+.chars {
+  border: 2px dotted black;
+}
+.words {
+  border: 2px dotted blue;
+}
+.lines {
+  border: 2px dotted green;
+}
+
+.container {
+  width: 100vw;
+}
+
+.myText {
+  width: 600px;
+  margin: 0 auto;
+}
