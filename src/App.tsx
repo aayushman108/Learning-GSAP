@@ -1,11 +1,12 @@
 import "./App.css";
-import { ComplexTextAnimation, TextSplitting } from "./components";
+import { ComplexTextAnimation, ComplexTextAnimationTwo } from "./components";
 
 function App() {
   return (
     <div>
       <ComplexTextAnimation />
-      <TextSplitting />
+      <ComplexTextAnimationTwo />
+      {/* <TextSplitting /> */}
     </div>
   );
 }

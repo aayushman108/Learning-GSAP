@@ -66,10 +66,27 @@ export function ComplexTextAnimation() {
 
         char.appendChild(img);
 
-        const spin = gsap.timeline({ repeat: -1 });
+        const nRect = char.getBoundingClientRect();
+
+        t1.from(
+          img,
+          {
+            x: -(nRect.left + nRect.width),
+            rotation: -360,
+            duration: 1,
+            ease: "power2.out",
+          },
+          "<-0.8"
+        );
+
+        const spin = gsap.timeline({ repeat: -1, delay: 2 });
 
         spin
-          .to(img, { rotationZ: 90, duration: 0.6, ease: "power1.inOut" })
+          .to(img, {
+            rotationZ: 90,
+            duration: 0.6,
+            ease: "power1.inOut",
+          })
           .to({}, { duration: 0.5 })
           .to(img, { rotationZ: 180, duration: 0.6, ease: "power1.inOut" })
           .to({}, { duration: 0.5 })
@@ -83,85 +100,17 @@ export function ComplexTextAnimation() {
     });
   }, []);
 
-  const descRef = useRef<HTMLSpanElement | null>(null);
-  const funStuffRef = useRef<HTMLSpanElement | null>(null);
-
-  useGSAP(() => {
-    if (!descRef?.current || !funStuffRef?.current) return;
-
-    const descTxt = SplitText.create(descRef.current, { type: "chars" });
-    const funStuffTxt = SplitText.create(funStuffRef.current, {
-      type: "chars",
-    });
-
-    descTxt.chars.forEach((char) => {
-      (char as HTMLElement).style.display = "inline-block";
-      (char as HTMLElement).style.transformOrigin = "50% 50%";
-      (char as HTMLElement).style.color = "#000";
-    });
-
-    const tw = gsap.timeline({ delay: 5 });
-
-    tw.to(
-      descTxt.chars,
-      {
-        rotateX: 360,
-        duration: 1.4,
-        ease: "power2.inOut",
-        stagger: 0.05,
-      },
-      "<"
-    );
-
-    tw.to(
-      descTxt.chars,
-      {
-        keyframes: [{ color: "#000" }, { color: "#00ff7f" }, { color: "#000" }],
-        duration: 1,
-        ease: "linear",
-        stagger: 0.07,
-      },
-      "<"
-    );
-
-    tw.to(funStuffTxt.chars, {
-      keyframes: [{ color: "#000" }, { color: "#00ff7f" }, { color: "#000" }],
-      duration: 1.4,
-      ease: "linear",
-      stagger: { amount: 1, yoyo: true },
-    });
-
-    tw.from(
-      funStuffTxt.chars,
-      {
-        opacity: 0,
-        y: 100,
-        duration: 1.4,
-        stagger: { amount: 1, yoyo: true },
-        ease: "elastic.out(1, 0.5)",
-      },
-      "<0.5"
-    );
-  }, []);
-
   return (
-    <div className="w-full min-h-screen flex items-center justify-center border-2 flex-col ">
+    <div className="min-h-screen w-full flex items-center justify-center">
       <h1 className="visually-hidden">Animate anything</h1>
       <div
         aria-hidden={true}
-        className="border-2 w-full p-20 flex flex-col leading-60"
+        className="w-full border-2 p-30 flex flex-col leading-60"
         ref={headingRef}
         style={{ clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0% 100%)" }}
       >
         <span className="text-[250px]">Animate</span>
         <span className="text-[250px] self-end">anything</span>
-      </div>
-
-      <div id="desc" className="text-[80px] p-40">
-        GSAP allows you to effortlessly animate anything JS can touch.
-        Delivering <span ref={descRef}>silky-smooth performance</span> and
-        unmatched support so you can focus on the{" "}
-        <span ref={funStuffRef}>fun stuff.</span>
       </div>
     </div>
   );
