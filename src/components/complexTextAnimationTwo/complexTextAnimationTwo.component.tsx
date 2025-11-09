@@ -8,26 +8,20 @@ gsap.registerPlugin(SplitText);
 gsap.registerPlugin(ScrollSmoother);
 
 export function ComplexTextAnimationTwo() {
-  const descRef = useRef<HTMLSpanElement | null>(null);
+  const sspRef = useRef<HTMLSpanElement | null>(null);
   const funStuffRef = useRef<HTMLSpanElement | null>(null);
 
   useGSAP(() => {
-    if (!descRef?.current || !funStuffRef?.current) return;
+    if (!sspRef?.current || !funStuffRef?.current) return;
 
-    const descTxt = SplitText.create(descRef.current, { type: "chars" });
+    const sspTxt = SplitText.create(sspRef.current, { type: "chars" });
     const funStuffTxt = SplitText.create(funStuffRef.current, {
       type: "chars",
     });
 
-    descTxt.chars.forEach((char) => {
-      (char as HTMLElement).style.display = "inline-block";
-      (char as HTMLElement).style.transformOrigin = "50% 50%";
-      (char as HTMLElement).style.color = "#000";
-    });
-
     const tw = gsap.timeline({ delay: 1 });
 
-    tw.to(descTxt.chars, {
+    tw.to(sspTxt.chars, {
       rotateX: 360,
       duration: 1.4,
       ease: "power2.inOut",
@@ -35,7 +29,7 @@ export function ComplexTextAnimationTwo() {
     });
 
     tw.to(
-      descTxt.chars,
+      sspTxt.chars,
       {
         keyframes: [{ color: "#000" }, { color: "#00ff7f" }, { color: "#000" }],
         duration: 1,
@@ -67,9 +61,9 @@ export function ComplexTextAnimationTwo() {
 
   return (
     <div className="w-full min-h-screen flex items-center">
-      <div id="desc" className="text-[80px] p-40">
+      <div id="desc" className="text-[60px] p-40 font-semibold">
         GSAP allows you to effortlessly animate anything JS can touch.
-        Delivering <span ref={descRef}>silky-smooth performance</span> and
+        Delivering <span ref={sspRef}>silky-smooth performance</span> and
         unmatched support so you can focus on the{" "}
         <span ref={funStuffRef}>fun stuff.</span>
       </div>
