@@ -1,5 +1,10 @@
 import "./App.css";
-import { ComplexTextAnimation, ComplexTextAnimationTwo } from "./components";
+import {
+  ComplexTextAnimation,
+  ComplexTextAnimationTwo,
+  Physics2D,
+  PhysicsText,
+} from "./components";
 
 function App() {
   return (
@@ -7,6 +12,8 @@ function App() {
       <ComplexTextAnimation />
       <ComplexTextAnimationTwo />
       {/* <TextSplitting /> */}
+      <Physics2D />
+      <PhysicsText />
     </div>
   );
 }

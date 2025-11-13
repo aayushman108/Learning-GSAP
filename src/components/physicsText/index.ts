@@ -1,0 +1,3 @@
+export * from "./physicsText.component";
+
+
