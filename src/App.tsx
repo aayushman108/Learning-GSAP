@@ -4,6 +4,7 @@ import {
   ComplexTextAnimationTwo,
   Physics2D,
   PhysicsText,
+  ScrollTriggerDemo,
 } from "./components";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       {/* <TextSplitting /> */}
       <Physics2D />
       <PhysicsText />
+      <ScrollTriggerDemo />
     </div>
   );
 }

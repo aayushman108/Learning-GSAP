@@ -3,3 +3,4 @@ export * from "./complexTextAnimation";
 export * from "./complexTextAnimationTwo";
 export * from "./physics2d";
 export * from "./physicsText";
+export * from "./scrollTriggerAnimation";
