@@ -2,10 +2,7 @@ import "./complexTextAnimationTwo.style.css";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
-import { SplitText, ScrollSmoother } from "gsap/all";
-
-gsap.registerPlugin(SplitText);
-gsap.registerPlugin(ScrollSmoother);
+import { SplitText } from "gsap/all";
 
 export function ComplexTextAnimationTwo() {
   const sspRef = useRef<HTMLSpanElement | null>(null);

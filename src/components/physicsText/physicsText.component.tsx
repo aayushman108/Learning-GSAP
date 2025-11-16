@@ -2,12 +2,7 @@ import "./physicsText.style.css";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef, useState, useEffect } from "react";
-import { Physics2DPlugin } from "gsap/Physics2DPlugin";
 import { SplitText } from "gsap/SplitText";
-
-// Register plugins
-gsap.registerPlugin(Physics2DPlugin);
-gsap.registerPlugin(SplitText);
 
 export function PhysicsText() {
   const containerRef = useRef<HTMLDivElement | null>(null);

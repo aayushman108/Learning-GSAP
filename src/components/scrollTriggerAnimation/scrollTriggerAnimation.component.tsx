@@ -6,10 +6,6 @@ import { SplitText } from "gsap/SplitText";
 import { useRef, useState, useEffect } from "react";
 import type { ReactNode } from "react";
 
-// Register plugins
-gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(SplitText);
-
 export interface ScrollTriggerAnimationProps {
   children: ReactNode;
   animationType?:

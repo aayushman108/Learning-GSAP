@@ -2,10 +2,8 @@ import "./complexTextAnimation.style.css";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
-import { SplitText, ScrollSmoother } from "gsap/all";
+import { SplitText } from "gsap/all";
 
-gsap.registerPlugin(SplitText);
-gsap.registerPlugin(ScrollSmoother);
 export function ComplexTextAnimation() {
   const headingRef = useRef<HTMLHeadingElement | null>(null);
 

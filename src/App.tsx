@@ -2,10 +2,10 @@ import "./App.css";
 import {
   ComplexTextAnimation,
   ComplexTextAnimationTwo,
-  Physics2D,
-  PhysicsText,
-  ScrollTriggerDemo,
+  ScrollTriggerMain,
 } from "./components";
+
+gsap.registerPlugin(SplitText, ScrollSmoother, ScrollTrigger, Physics2DPlugin);
 
 function App() {
   return (
@@ -13,9 +13,10 @@ function App() {
       <ComplexTextAnimation />
       <ComplexTextAnimationTwo />
       {/* <TextSplitting /> */}
-      <Physics2D />
+      {/* <Physics2D />
       <PhysicsText />
-      <ScrollTriggerDemo />
+      <ScrollTriggerDemo /> */}
+      <ScrollTriggerMain />
     </div>
   );
 }

@@ -4,8 +4,6 @@ import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
 import "./textSplitting.style.css";
 
-gsap.registerPlugin(SplitText);
-
 export const TextSplitting: React.FC = () => {
   const textRef = useRef<HTMLHeadingElement | null>(null);
 
