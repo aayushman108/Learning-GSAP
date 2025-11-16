@@ -8,7 +8,21 @@ export function ScrollTriggerMain() {
     if (!containerRef?.current) return;
 
     const widthToScroll = containerRef.current?.scrollWidth - window.innerWidth;
-    const t1 = gsap.timeline({
+    // const t1 = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: ".wrapper",
+    //     start: "top top",
+    //     end: `+=${widthToScroll}`,
+    //     scrub: true,
+    //     pin: true,
+    //     // markers: true,
+    //   },
+    // });
+    // t1.to(".wrapper", {
+    //   x: `-${widthToScroll}`,
+    // });
+    gsap.to(".wrapper", {
+      x: `-${widthToScroll}`,
       scrollTrigger: {
         trigger: ".wrapper",
         start: "top top",
@@ -17,9 +31,6 @@ export function ScrollTriggerMain() {
         pin: true,
         // markers: true,
       },
-    });
-    t1.to(".wrapper", {
-      x: `-${widthToScroll}`,
     });
   });
 
