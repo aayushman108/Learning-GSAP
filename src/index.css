@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+/* Prevent horizontal scrollbar when using 100vw / w-screen panels */
+html,
+body,
+#root {
+  overflow-x: hidden;
+}
