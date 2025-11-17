@@ -50,7 +50,6 @@ export function ScrollTriggerMain() {
             horizontal: true,
             scrub: true,
             containerAnimation: tl1,
-            markers: true,
           },
         })
         .to(
@@ -141,10 +140,4 @@ export function ScrollTriggerMain() {
       </div>
     </div>
   );
-}
-
-export function ScrollTriggerPinVideo() {
-  useGSAP(() => {});
-
-  return <div className="h-screen w-screen">Hello World</div>;
 }

@@ -4,7 +4,7 @@ import {
   ComplexTextAnimation,
   ComplexTextAnimationTwo,
   ScrollTriggerMain,
-  ScrollTriggerPinVideo,
+  ScrollTriggerWithCardInflow,
 } from "./components";
 import {
   SplitText,
@@ -25,7 +25,7 @@ function App() {
       <PhysicsText />
       <ScrollTriggerDemo /> */}
       <ScrollTriggerMain />
-      <ScrollTriggerPinVideo />
+      <ScrollTriggerWithCardInflow />
     </div>
   );
 }

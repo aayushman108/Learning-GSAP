@@ -5,3 +5,4 @@ export * from "./physics2d";
 export * from "./physicsText";
 export * from "./scrollTriggerAnimation";
 export * from "./scrollTriggerMain";
+export * from "./scrollTriggerWithCardInflow";
