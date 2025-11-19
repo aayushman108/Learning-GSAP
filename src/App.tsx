@@ -3,6 +3,7 @@ import "./App.css";
 import {
   ComplexTextAnimation,
   ComplexTextAnimationTwo,
+  HeroSection,
   ScrollTriggerMain,
   ScrollTriggerWithCardInflow,
 } from "./components";
@@ -11,13 +12,21 @@ import {
   ScrollSmoother,
   ScrollTrigger,
   Physics2DPlugin,
+  Flip,
 } from "gsap/all";
 
-gsap.registerPlugin(SplitText, ScrollSmoother, ScrollTrigger, Physics2DPlugin);
+gsap.registerPlugin(
+  SplitText,
+  ScrollSmoother,
+  ScrollTrigger,
+  Physics2DPlugin,
+  Flip
+);
 
 function App() {
   return (
     <div>
+      <HeroSection />
       <ComplexTextAnimation />
       <ComplexTextAnimationTwo />
       {/* <TextSplitting /> */}
