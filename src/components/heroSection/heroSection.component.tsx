@@ -55,11 +55,6 @@ export function HeroSection() {
         }
       });
       revealImage?.remove();
-      // Flip.fit(
-      //   ".staggeredImages > img.container",
-      //   ".targetContainer > .target",
-      //   {}
-      // );
 
       const state = Flip.getState(mainImages);
 
@@ -69,7 +64,7 @@ export function HeroSection() {
 
       Flip.from(state, {
         duration: 1.5,
-        ease: "power2.inOut",
+        ease: "power2.out",
         stagger: -0.2,
         scale: true,
         simple: true,
@@ -77,13 +72,13 @@ export function HeroSection() {
           gsap.to(mainImages, {
             borderRadius: "6px",
             duration: 1,
-            ease: "power2.inOut",
+            ease: "power2.out",
             stagger: 0.1,
             overflow: "hidden",
           });
         },
       });
-    });
+    }, "+=0.2");
   });
   return (
     <div className="heroSectionContainer relative w-screen h-screen">
@@ -94,9 +89,9 @@ export function HeroSection() {
         <img src="/assets/hero_2.jpg" alt="" />
         <img src="/assets/hero_3.jpg" alt="" />
         <img src="/assets/hero_4.jpg" alt="" />
-        <img className="mainImg" src="/assets/hero_5.jpg" alt="" />
-        <img className="mainImg" src="/assets/hero_6.jpg" alt="" />
         <img className="mainImg" src="/assets/hero_7.jpg" alt="" />
+        <img className="mainImg" src="/assets/hero_6.jpg" alt="" />
+        <img className="mainImg" src="/assets/hero_5.jpg" alt="" />
       </figure>
 
       <div className="targetContainer">
