@@ -1,0 +1,46 @@
+.wrapper {
+  padding: 40px;
+  font-family: sans-serif;
+}
+
+h3 {
+  margin: 10px 0;
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 80px);
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.item {
+  width: 80px;
+  height: 80px;
+  background: #222;
+  color: #fff;
+  font-size: 26px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.item:hover {
+  background: #444;
+}
+
+.selected-area {
+  margin-bottom: 30px;
+}
+
+.selected-box {
+  min-height: 100px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  border: 2px dashed #666;
+  padding: 15px;
+  border-radius: 10px;
+}
