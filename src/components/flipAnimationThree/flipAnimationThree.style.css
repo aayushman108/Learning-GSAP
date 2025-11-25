@@ -1,0 +1,144 @@
+.gallery-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #111;
+  color: #fff;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+.gallery-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.gallery-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #fff, #888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+.gallery-header p {
+  color: #888;
+  font-size: 1.1rem;
+}
+
+.gallery-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* FEATURED CONTAINER */
+.featured-container {
+  width: 100%;
+  min-height: 0; /* Collapsed by default */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: min-height 0.5s ease;
+}
+
+.featured-container.active {
+  min-height: 500px;
+  margin-bottom: 20px;
+}
+
+/* GRID CONTAINER */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+/* IMAGE CARD */
+.image-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #222;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 4/3; /* Default aspect ratio for grid */
+}
+
+/* FEATURED CARD STYLES */
+.image-card.featured {
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
+  z-index: 100;
+}
+
+.image-card.featured img {
+  aspect-ratio: 16/9;
+}
+
+.image-card.featured:hover {
+  transform: none;
+}
+
+/* OVERLAY & INFO */
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.image-card:hover .card-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-overlay h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+}
+
+.card-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.card-info span {
+  color: #aaa;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

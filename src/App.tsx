@@ -15,6 +15,7 @@ import {
   Flip,
 } from "gsap/all";
 import { FlipAnimationTwo } from "./components/flipAnimationTwo/flipAnimationTwo.component";
+import { FlipAnimationThree } from "./components/flipAnimationThree/flipAnimationThree.component";
 
 gsap.registerPlugin(
   SplitText,
@@ -30,6 +31,7 @@ function App() {
       <HeroSection />
       {/* <FlipAnimation /> */}
       <FlipAnimationTwo />
+      <FlipAnimationThree />
       <ComplexTextAnimation />
       <ComplexTextAnimationTwo />
       {/* <TextSplitting /> */}
