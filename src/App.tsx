@@ -14,6 +14,7 @@ import {
   Physics2DPlugin,
   Flip,
 } from "gsap/all";
+import { FlipAnimationTwo } from "./components/flipAnimationTwo/flipAnimationTwo.component";
 
 gsap.registerPlugin(
   SplitText,
@@ -27,6 +28,8 @@ function App() {
   return (
     <div>
       <HeroSection />
+      {/* <FlipAnimation /> */}
+      <FlipAnimationTwo />
       <ComplexTextAnimation />
       <ComplexTextAnimationTwo />
       {/* <TextSplitting /> */}
