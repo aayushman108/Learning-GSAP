@@ -1,6 +1,9 @@
-import { useState, useRef, useLayoutEffect } from "react";
+"use client";
+
+import { useState, useRef } from "react";
 import gsap from "gsap";
 import Flip from "gsap/Flip";
+import { useGSAP } from "@gsap/react";
 import "./flipAnimationThree.style.css";
 
 gsap.registerPlugin(Flip);
@@ -49,47 +52,49 @@ const images: ImageItem[] = [
     title: "Urban Grey",
     category: "Casual",
   },
+  {
+    id: "7",
+    url: "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?q=80&w=1000&auto=format&fit=crop",
+    title: "Running Blue",
+    category: "Sport",
+  },
 ];
 
 export function FlipAnimationThree() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const flipState = useRef<Flip.FlipState | null>(null);
+
   const containerRef = useRef<HTMLDivElement>(null);
 
   const toggleSelect = (id: string) => {
-    const state = Flip.getState(".image-card, .gallery-grid, .featured-container");
+    const state = Flip.getState(
+      ".image-card, .gallery-grid, .image-card.featured, .featured-container"
+    );
     flipState.current = state;
-    setSelectedId(selectedId === id ? null : id);
+
+    setSelectedId((prev) => (prev === id ? null : id));
   };
 
-  useLayoutEffect(() => {
-    if (!flipState.current) return;
+  useGSAP(
+    () => {
+      if (!flipState.current) return;
 
-    Flip.from(flipState.current, {
-      targets: ".image-card, .gallery-grid, .featured-container",
-      duration: 0.8,
-      ease: "power4.inOut",
-      absolute: true, // Make items absolute during the flip to prevent layout jumps
-      zIndex: 10,
-      scale: true, // Animate scale for smoother image resizing
-      onEnter: (elements) => {
-        return gsap.fromTo(
-          elements,
-          { opacity: 0, scale: 0.8 },
-          { opacity: 1, scale: 1, duration: 0.6, delay: 0.2 }
-        );
-      },
-      onLeave: (elements) => {
-        return gsap.to(elements, { opacity: 0, scale: 0.8, duration: 0.6 });
-      },
-      onComplete: () => {
-        flipState.current = null;
-      },
-    });
-  }, [selectedId]);
+      Flip.from(flipState.current, {
+        targets: ".image-card, .gallery-grid, .featured-container",
+        duration: 0.8,
+        ease: "power3.inOut",
+        absolute: selectedId ? `[data-flip-id="${selectedId}"]` : false,
+        zIndex: 10,
+        toggleClass: "flipping",
+        onComplete: () => {
+          flipState.current = null;
+        },
+      });
+    },
+    { dependencies: [selectedId], scope: containerRef }
+  );
 
   const selectedImage = images.find((img) => img.id === selectedId);
-  const gridImages = images.filter((img) => img.id !== selectedId);
 
   return (
     <div className="gallery-wrapper" ref={containerRef}>
@@ -99,7 +104,7 @@ export function FlipAnimationThree() {
       </div>
 
       <div className="gallery-content">
-        {/* FEATURED AREA */}
+        {/* FEATURED SECTION */}
         <div className={`featured-container ${selectedId ? "active" : ""}`}>
           {selectedImage && (
             <div
@@ -116,21 +121,23 @@ export function FlipAnimationThree() {
           )}
         </div>
 
-        {/* GRID AREA */}
+        {/* GRID SECTION */}
         <div className="gallery-grid">
-          {gridImages.map((img) => (
-            <div
-              key={img.id}
-              className="image-card"
-              data-flip-id={img.id}
-              onClick={() => toggleSelect(img.id)}
-            >
-              <img src={img.url} alt={img.title} />
-              <div className="card-overlay">
-                <h4>{img.title}</h4>
+          {images.map((img) =>
+            img.id === selectedId ? null : (
+              <div
+                key={img.id}
+                className="image-card"
+                data-flip-id={img.id}
+                onClick={() => toggleSelect(img.id)}
+              >
+                <img src={img.url} alt={img.title} />
+                <div className="card-overlay">
+                  <h4>{img.title}</h4>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          )}
         </div>
       </div>
     </div>

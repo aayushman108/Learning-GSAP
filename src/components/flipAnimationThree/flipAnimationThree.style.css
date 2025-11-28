@@ -41,7 +41,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: min-height 0.5s ease;
+  /* transition: min-height 0.5s ease; REMOVED to prevent conflict with GSAP */
 }
 
 .featured-container.active {
@@ -141,4 +141,16 @@
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+/* 
+  GSAP FLIP ANIMATION HELPER 
+  When GSAP is flipping, we want to disable CSS transitions 
+  so they don't fight with JS animation 
+*/
+.flipping,
+.flipping .image-card,
+.flipping .featured-container,
+.flipping .card-overlay {
+  transition: none !important;
 }
