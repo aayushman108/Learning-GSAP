@@ -37,11 +37,10 @@
 /* FEATURED CONTAINER */
 .featured-container {
   width: 100%;
-  min-height: 0; /* Collapsed by default */
+  min-height: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* transition: min-height 0.5s ease; REMOVED to prevent conflict with GSAP */
 }
 
 .featured-container.active {
@@ -65,7 +64,6 @@
   cursor: pointer;
   background: #222;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .image-card:hover {
@@ -78,7 +76,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  aspect-ratio: 4/3; /* Default aspect ratio for grid */
+  aspect-ratio: 4/3;
 }
 
 /* FEATURED CARD STYLES */

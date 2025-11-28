@@ -82,9 +82,10 @@ export function FlipAnimationThree() {
       Flip.from(flipState.current, {
         targets: ".image-card, .gallery-grid, .featured-container",
         duration: 0.8,
-        ease: "power3.inOut",
-        absolute: selectedId ? `[data-flip-id="${selectedId}"]` : false,
+        ease: "power3.out",
+        absolute: ".image-card",
         zIndex: 10,
+        scale: true,
         toggleClass: "flipping",
         onComplete: () => {
           flipState.current = null;
@@ -106,7 +107,7 @@ export function FlipAnimationThree() {
       <div className="gallery-content">
         {/* FEATURED SECTION */}
         <div className={`featured-container ${selectedId ? "active" : ""}`}>
-          {selectedImage && (
+          {selectedImage ? (
             <div
               className="image-card featured"
               data-flip-id={selectedImage.id}
@@ -118,7 +119,7 @@ export function FlipAnimationThree() {
                 <span>{selectedImage.category}</span>
               </div>
             </div>
-          )}
+          ) : null}
         </div>
 
         {/* GRID SECTION */}
