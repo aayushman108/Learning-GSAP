@@ -7,3 +7,4 @@ export * from "./scrollTriggerAnimation";
 export * from "./scrollTriggerMain";
 export * from "./scrollTriggerWithCardInflow";
 export * from "./heroSection";
+export * from "./SVGOne/SVGOne.component";

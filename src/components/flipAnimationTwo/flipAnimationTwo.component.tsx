@@ -41,7 +41,7 @@ export function FlipAnimationTwo() {
   }, [selected]);
 
   return (
-    <div className="wrapper">
+    <div className="flip-animation-two-wrapper">
       <h2>GSAP FLIP (TypeScript): Move Items Between Containers</h2>
 
       {/* SELECTED AREA */}
