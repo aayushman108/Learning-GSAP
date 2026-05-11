@@ -2,23 +2,32 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(DrawSVGPlugin, useGSAP);
+gsap.registerPlugin(DrawSVGPlugin, ScrollTrigger, useGSAP);
 
 export default function ComplexDrawSVG() {
   const containerRef = useRef(null);
 
   useGSAP(
     () => {
-      const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
-
       // 1️⃣ Initial State: Hide fill, set stroke to match fill color, prepare drawSVG
-      tl.set("path", {
+      // We set this immediately so it doesn't flash on mount
+      gsap.set("path", {
         drawSVG: "0%",
         fillOpacity: 0,
         stroke: (_, target) => target.getAttribute("fill"), // Use the path's own fill color for the stroke
         strokeWidth: 2,
         strokeOpacity: 1,
+      });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+        defaults: { ease: "power2.inOut" },
       });
 
       // 2️⃣ Path Reveal: Draw the strokes
