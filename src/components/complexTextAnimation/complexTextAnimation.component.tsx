@@ -2,7 +2,9 @@ import "./complexTextAnimation.style.css";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
-import { SplitText } from "gsap/all";
+import { SplitText, ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export function ComplexTextAnimation() {
   const headingRef = useRef<HTMLHeadingElement | null>(null);
@@ -14,7 +16,13 @@ export function ComplexTextAnimation() {
       type: "chars, words",
     });
 
-    const t1 = gsap.timeline();
+    const t1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: headingRef.current,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
 
     t1.from(splitText.chars, {
       opacity: 0,

@@ -2,11 +2,14 @@ import "./complexTextAnimationTwo.style.css";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
-import { SplitText } from "gsap/all";
+import { SplitText, ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export function ComplexTextAnimationTwo() {
   const sspRef = useRef<HTMLSpanElement | null>(null);
   const funStuffRef = useRef<HTMLSpanElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   useGSAP(() => {
     if (!sspRef?.current || !funStuffRef?.current) return;
@@ -16,7 +19,14 @@ export function ComplexTextAnimationTwo() {
       type: "chars",
     });
 
-    const tw = gsap.timeline({ delay: 1 });
+    const tw = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+      delay: 1,
+    });
 
     tw.to(sspTxt.chars, {
       rotateX: 360,
@@ -57,7 +67,7 @@ export function ComplexTextAnimationTwo() {
   }, []);
 
   return (
-    <div className="w-full min-h-screen flex items-center">
+    <div className="w-full min-h-screen flex items-center" ref={containerRef}>
       <div id="desc" className="text-[60px] p-40 font-semibold">
         GSAP allows you to effortlessly animate anything JS can touch.
         Delivering <span ref={sspRef}>silky-smooth performance</span> and
