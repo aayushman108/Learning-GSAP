@@ -3,7 +3,6 @@ import "./App.css";
 import {
   ComplexTextAnimation,
   ComplexTextAnimationTwo,
-  GSAPOne,
   HeroSection,
   ScrollTriggerMain,
   ScrollTriggerWithCardInflow,
@@ -17,7 +16,6 @@ import {
 } from "gsap/all";
 import { FlipAnimationTwo } from "./components/flipAnimationTwo/flipAnimationTwo.component";
 import { FlipAnimationThree } from "./components/flipAnimationThree/flipAnimationThree.component";
-import { ComplexSvgDrawAnimation } from "./components/SVGTwo/SVGTwo.component";
 import ComplexDrawSVG from "./components/SVGThree/SVGThree.component";
 
 gsap.registerPlugin(
@@ -25,7 +23,7 @@ gsap.registerPlugin(
   ScrollSmoother,
   ScrollTrigger,
   Physics2DPlugin,
-  Flip
+  Flip,
 );
 
 function App() {
