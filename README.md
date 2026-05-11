@@ -1,75 +1,72 @@
-# React + TypeScript + Vite
+# 🌀 Learning GSAP (GreenSock Animation Platform)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the **Learning GSAP** playground! This project is a dedicated space for exploring, experimenting, and mastering high-performance web animations using GSAP within a modern **React 19** and **Vite** ecosystem.
 
-Currently, two official plugins are available:
+## 🚀 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This repository serves as a collection of advanced animation techniques, ranging from simple transitions to complex scroll-driven sequences and physics-based interactions. It leverages the full power of the GSAP suite to create fluid, professional UI/UX experiences.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- **Framework:** [React 19](https://react.dev/)
+- **Build Tool:** [Vite 7](https://vitejs.dev/)
+- **Animation Engine:** [GSAP 3](https://greensock.com/gsap/)
+- **React Integration:** [@gsap/react](https://greensock.com/react/)
+- **Styling:** [Tailwind CSS 4](https://tailwindcss.com/) & [Vanilla CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
 
-Note: This will impact Vite dev & build performances.
+## ✨ Key Features & Animations
 
-## Expanding the ESLint configuration
+The project showcases several advanced GSAP plugins and techniques, organized into specialized categories:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 📜 Scroll-Driven Interactions
+- **ScrollTrigger:** Immersive scroll-driven animations and parallax effects.
+- **ScrollSmoother:** Buttery-soft scrolling experiences for modern web apps.
+- **Card Inflow:** Dynamic entry animations for cards based on scroll position.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 🔄 State & Layout Transitions (FLIP)
+- **Flip Plugin:** Seamlessly transitioning elements between different layouts and states.
+- **Multiple Versions:** Progressive experiments from basic to complex FLIP logic.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 🎨 Vector & Path Animations
+- **DrawSVG Concept:** Complex SVG path drawing and manipulation.
+- **SVG Morphing:** Animating transitions between different vector shapes.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 🔠 Advanced Typography
+- **SplitText:** Dynamic text splitting by character, word, or line.
+- **Physics Text:** Combining text animations with physics-based motion.
+- **Complex Sequences:** Layered text animations for high-impact headers.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### ⚛️ Motion & Physics
+- **Physics2D:** Simulating gravity, velocity, and friction for realistic motion.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🏃 Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Prerequisites
+- Node.js (Latest LTS recommended)
+- npm or yarn
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/aayushman108/Learning-GSAP.git
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## 🛠️ Scripts
+- `npm run dev`: Starts the development server with Vite.
+- `npm run build`: Compiles TypeScript and builds the project for production.
+- `npm run lint`: Runs ESLint to check for code quality issues.
+- `npm run preview`: Previews the production build locally.
+
+## 📜 License
+This project is for educational purposes. All animation logic and implementations are part of a personal learning journey.
