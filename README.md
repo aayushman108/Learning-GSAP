@@ -2,6 +2,8 @@
 
 Welcome to the **Learning GSAP** playground! This project is a dedicated space for exploring, experimenting, and mastering high-performance web animations using GSAP within a modern **React 19** and **Vite** ecosystem.
 
+🔗 **Live Demo:** [gsapplayground.netlify.app](https://gsapplayground.netlify.app/)
+
 ## 🚀 Overview
 
 This repository serves as a collection of advanced animation techniques, ranging from simple transitions to complex scroll-driven sequences and physics-based interactions. It leverages the full power of the GSAP suite to create fluid, professional UI/UX experiences.
